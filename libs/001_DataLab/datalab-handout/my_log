@@ -1,0 +1,21 @@
+gcc -O -Wall -m32 -lm -o btest bits.c btest.c decl.c tests.c
+bits.c: In function ‘isTmax’:
+bits.c:167:3: warning: integer overflow in expression ‘-2147483648 - 1’ of type ‘int’ results in ‘2147483647’ [-Woverflow]
+  167 |   return !(x^((1<<31)-1));
+      |   ^~~~~~
+bits.c: In function ‘isAsciiDigit’:
+bits.c:203:7: warning: unused variable ‘x2’ [-Wunused-variable]
+  203 |   int x2=(x&0x0f);
+      |       ^~
+bits.c:202:7: warning: unused variable ‘x1’ [-Wunused-variable]
+  202 |   int x1=(x&0xf0)>>4;
+      |       ^~
+bits.c:205:1: warning: control reaches end of non-void function [-Wreturn-type]
+  205 | }
+      | ^
+btest.c: In function ‘test_function’:
+btest.c:332:23: warning: ‘arg_test_range[1]’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+  332 |     if (arg_test_range[1] < 1)
+      |         ~~~~~~~~~~~~~~^~~
+gcc -O -Wall -m32 -o fshow fshow.c
+gcc -O -Wall -m32 -o ishow ishow.c
