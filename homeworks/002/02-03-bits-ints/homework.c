@@ -32,8 +32,9 @@ unsigned HA_263_srl(unsigned x, int k)//QE1
 {
     int INT_BITS=sizeof(int)<<3;
     unsigned xsra=(int)x>>k;
-    
-    return xsra&(INT_BITS-k);
+    unsigned mask=~(-0u>>(INT_BITS-k));
+
+    return xsra&mask;
 }
 
 int HA_263_sra(int x, int k)//QE2
@@ -89,7 +90,7 @@ int HA_267_bad_int_size_is_32()
 int HA_268_lower_onr_mask(int n)//QE5
 {
     // error: n=32
-    return -0u>>((sizeof(int<<3))-n);
+    return ~(-0u>>((sizeof(int<<3))-n));
 }
 
 unsigned HA_269_rotate_left(unsigned x, int n)
