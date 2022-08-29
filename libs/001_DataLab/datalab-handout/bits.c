@@ -202,6 +202,7 @@ int isAsciiDigit(int x) {
   int x1=(x&0x00f0)>>4;
   int x2=(x&0x000f);
   int ans1=!(x1^(0x3));
+  //int ans2=
   return 0;
 }
 /* 
